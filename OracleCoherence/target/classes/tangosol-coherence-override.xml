@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<coherence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns="http://xmlns.oracle.com/coherence/coherence-operational-config"
+   xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-operational-config coherence-operational-config.xsd">
+ 
+   <cluster-config>
+    
+      <member-identity>
+         <cluster-name>OC</cluster-name>
+         <!-- Name of the first member of the cluster -->
+         <role-name>1</role-name>
+      </member-identity>
+   
+      <unicast-listener>                    
+          <well-known-addresses>
+            <socket-address id="1">
+              <!-- IP Address of the first member of the cluster -->
+              <address>192.168.0.100</address>
+              <port>8089</port>
+            </socket-address>
+            <socket-address id="2">
+              <!-- IP Address of the second member of the cluster -->
+              <address>192.168.0.100</address>
+              <port>8089</port>
+            </socket-address> 
+          </well-known-addresses>
+           
+          <!-- Name of the first member of the cluster -->
+          <machine-id>1</machine-id>
+          <!-- IP Address of the first member of the cluster -->
+              <address>192.168.0.100</address>
+              <port>8089</port>
+              <port-auto-adjust>true</port-auto-adjust>                           
+      </unicast-listener>    
+   </cluster-config>
+   
+   <configurable-cache-factory-config>
+      <init-params>
+         <init-param>
+            <param-type>java.lang.String</param-type>
+            <param-value system-property="tangosol.coherence.cacheconfig">
+              oc-coherence-cache-config.xml
+        </param-value>
+         </init-param>
+      </init-params>
+   </configurable-cache-factory-config>
+    
+</coherence>
