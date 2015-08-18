@@ -9,4 +9,5 @@ For the second system change the machine id and ip in tangosol-coherence-overrid
 # Requirements
 
 maven
+
 coherence.jar in local maven repo (tested with 3.7.1)
